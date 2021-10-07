@@ -24,6 +24,8 @@
         }
 
         &--back {
+            transform: rotateY(180deg);
+
             &-1 {
                 background-image: linear-gradient(to right, $color-secondary-light, $color-secondary-dark);
             }
@@ -34,24 +36,6 @@
 
             &-3 {
                 background-image: linear-gradient(to right, $color-tertiary-light, $color-tertiary-dark);
-            }
-            transform: rotateY(180deg);
-            .card__cta {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 90%;
-            }
-            .card__price-box {
-                text-align: center;
-                color: $color-white;
-                margin-bottom: 8rem;
-            }
-            .card__price-value {
-                font-size: 6rem;
-                font-weight: 100;
-                margin-bottom: 5rem;
             }
         }
     }
@@ -100,7 +84,6 @@
     &__heading-span {
         border-radius: 5rem;
         padding: 1rem 1.5rem;
-        -webkit-box-decoration-break: clone;
 
         &--1 {
             background-image: linear-gradient(
@@ -109,6 +92,7 @@
                 rgba($color-secondary-dark, 0.85)
             );
         }
+
         &--2 {
             background-image: linear-gradient(
                 to right bottom,
@@ -116,6 +100,7 @@
                 rgba($color-primary-dark, 0.85)
             );
         }
+
         &--3 {
             background-image: linear-gradient(
                 to right bottom,
@@ -143,6 +128,68 @@
                     border-bottom: 1px solid #dbdbdb;
                 }
             }
+        }
+    }
+
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-box {
+        text-align: center;
+        color: $color-white;
+        margin-bottom: 8rem;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
+        margin-bottom: 5rem;
+    }
+
+    @include respond(tab-port) {
+        height: auto;
+
+        &__side {
+            height: auto;
+            border-radius: 5rem 5rem 0rem 0rem;
+            position: relative;
+
+            &--back {
+                transform: rotateY(0);
+                border-radius: 0rem 0rem 5rem 5rem;
+            }
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+
+        &__cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 4rem;
+        }
+
+        &__price-box {
+            margin-bottom: 3rem;
+        }
+
+        &__price-value {
+            font-size: 6rem;
         }
     }
 }
